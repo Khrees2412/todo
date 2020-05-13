@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO APP</title>
+</head>
+<body>
+    <style>
+        *{
+box-sizing: border-box;
+        }
+        body{
+            background-color: darkblue;
+            color: pink;
+        }
+        input{
+            width: 400px;
+            height: 50px;
+            border: 1px solid black;
+            border-radius: 7px;
+            outline:none;
+            font-weight: bolder ;
+            font-size: larger;
+        }
+        button{
+            border: 1px solid black;
+            border-radius: 2px;
+            background: pink;
+            outline:none;
+            font-weight: bolder;
+            padding: 16px 32px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+                }
+        li{
+            list-style-type: none;
+            text-decoration: solid;
+            text-transform: uppercase;
+        }
+    .form-body{
+display: flex;
+justify-content: center;
+    }
+    </style>
+    <div class="form-body">
+        <form>
+        <h1 style="text-decoration:black underline;">Todo App</h1>
+        <p>Create a todo below</p>
+        <input id="text-input" value="" 
+        type="text" >
+        <ul id="ul">
+
+        </ul>
+        <button id="submit" type="submit">Add </button>
+        <button id="go" type="submit">Clear </button>
+       </form>
+</div>
+<script>
+const createTodo = (e) => {
+    e.preventDefault();
+
+    let input = document.getElementById("text-input").value;
+    let ul = document.getElementById('ul')
+    let submit = document.getElementById("submit");
+    
+  if (!input){
+    alert('Please create a todo')
+}
+else{
+    
+    let li = document.createElement('li')
+   // let del = document.getElementById("button");
+    li.appendChild(document.createTextNode('- ' + input))
+    ul.appendChild(li);
+    /*
+    for(del=0; del<li.length; del++){
+        li.appendChild(del)
+    }
+    */
+  
+    document.getElementById('text-input').value = "";
+}    
+    }
+  
+submit.addEventListener("click", createTodo)
+
+
+
+</script>
+</body>
+</html>
